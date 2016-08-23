@@ -1,0 +1,31 @@
+﻿<div class="pull-left">
+
+    Left Pane View
+    <div class="row">
+        <div class="col-md-3 pull-left">
+            <img src=@Url.Action("_getProfileImage","Home") class ="img-circle" height="20" width="20" />
+        </div>
+        <div class="col-md-9 pull-right">
+            <b>@Html.ActionLink( Html.Action("_getAuthName","Home").ToString(),"Profile","Home")</b>
+        </div>
+    </div>
+    <div >
+        <br>
+    </div>
+    <div class="text-info row">
+        <div class="col-md-9 pull-left">
+            @Html.ActionLink("Blogs", "Index", "Blog") : 
+        </div>
+        <div class="col-md-3">@Html.Action("_getAuthBlogCount", "Home")</div>
+    </div>
+    <div class="row text-info">
+        <div class="col-md-9 pull-left">@Html.ActionLink("Followers", "List", "Profile") :</div>
+        <div class="col-md-3 pull-left">@Html.Action("_getAuthFollowersCount","Home")</div>
+    </div>
+    <br>
+    <hr />
+    <div class="row text-info">
+        <span class="text-center text-info">Top Blogs : </span>        
+        
+    </div>
+</div>

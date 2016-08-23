@@ -1,0 +1,33 @@
+﻿@model Guid?
+@{
+    ViewBag.Title = "Home";
+}
+<div class="row">
+    <div class="col-md-2 pull-left" style="padding-right:20px;border-right:1px groove #808080">
+        @Html.Action("_LeftPane", "Home")
+    </div>
+    <div class="col-md-9">
+    <p>
+        <img src=@Url.Action("_getBlogCover", "Blog", new { id=Model }) height="200" width="1000">
+    </p>
+        <div class="jumbotron">
+            
+            <p>
+                Post Something new ,<br />
+                @Html.ActionLink("Click Here", "CreatePost", "Blog", new { id = Model }, new { @class = "btn btn-primary" })
+            </p>
+        </div>
+        <div class="page-header">
+            <h3>My Posts</h3><br/>
+        </div>
+        @Styles.Render("~/Content/themes/base/css")
+        @Scripts.Render("~/bundles/jqueryui")
+        <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+        <link href="~/Content/themes/base/tabs.css" rel="stylesheet" />
+        <script>
+            $(function () {
+                $("#tabs").tabs()
+            });
+        </script>
+    </div>  
+</div>

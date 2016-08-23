@@ -1,0 +1,25 @@
+﻿@model IEnumerable<hex.Entites.Blog>
+
+<div id="list" >
+    @Html.Partial("_blogList")
+</div>
+<div  id="LoadMoreBtn" class=" col-md-3 col-md-offset-3">
+    <span class="btn btn-primary btn-lg">Load More </span>
+</div>
+
+<script>
+    var count = 2;
+    $(function () {
+        $("#LoadMoreBtn").on('click', function (ev) {
+            $.ajax({
+                type: "GET",
+                url: "./_getAuthOwnedBlogList",
+                data: { page: count },
+                success: function (res) {
+                    $("#list").append(res);
+                    count++;
+                }
+            });
+        });
+    });
+</script>

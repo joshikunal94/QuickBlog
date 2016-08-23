@@ -1,0 +1,53 @@
+﻿@{
+  
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-9 container col-md-offset-2">
+        <div class="jumbotron">
+            <div>
+
+            </div>
+            @if (hex.Services.UserService.GetOwnedBlogCount(User.Identity.Name) == 0 )
+            {
+                <p>
+                    All new To blogs , Create a new Blog and get ready to post.
+                    @Html.ActionLink("Create", "Create", "Blog", null, new { @class = "btn btn-primary" })
+                </p>
+            }
+            else
+            {
+                <p>
+                    Create A New Blog
+                    @Html.ActionLink("Create", "Create", "Blog", null, new { @class = "btn btn-primary" })
+                </p>
+            }
+        </div>
+        <div id="tabs">
+            <ul>
+                <li><a href="#fragment-1"><span>My Blogs</span></a></li>
+                <li><a href="#fragment-2"><span>Subscribed Blogs</span></a></li>
+                <li><a href="#fragment-3"><span>Suggested Blogs</span></a></li>
+                <li><a href="#fragment-4"><span>Top Blogs</span></a></li>
+            </ul>
+            <div id="fragment-1">
+                @Html.Action("_getAuthOwnedBlogList","Blog")
+             </div>  
+            <div id="fragment-2">
+            </div>
+            <div id="fragment-3"></div> 
+            <div id="fragment-4"></div>
+        </div>
+        @Styles.Render("~/Content/themes/base/css")
+        @Scripts.Render("~/bundles/jqueryui")
+        <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+        <link href="~/Content/themes/base/tabs.css" rel="stylesheet" />
+        <script>
+            $(function () {
+                $("#tabs").tabs()
+            });
+        </script>
+    
+</div>
+
+</div>

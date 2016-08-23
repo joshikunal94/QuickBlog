@@ -1,0 +1,25 @@
+﻿@model hex.Entites.Blog
+
+
+    <div class="row text-center">
+        <hr />
+        <h3>
+            <a href=@Url.Action("Home", "Blog", new { id = Model.BlogId}) >
+            @Model.Name
+            </a>
+        </h3>
+    </div>
+    <div class="row text-info">
+       @Model.Description
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Subscribers:@Html.Action("_getSubscribersCount", "Blog", new { id = Model.BlogId })
+        </div>
+        <div class="col-md-4">
+            Posts:@Html.Action("_getPostCount", "Blog", new { id = Model.BlogId})
+        </div>
+        <br />
+        <hr />
+    </div>
+

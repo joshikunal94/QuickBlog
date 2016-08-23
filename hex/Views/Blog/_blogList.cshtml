@@ -1,0 +1,13 @@
+﻿    @model IEnumerable<hex.Entites.Blog>
+
+    <div id="Content">
+        <ul>
+            @foreach (var x in Model)
+            {
+                <li>
+                    @Html.Action("_getBlogSummary", "Blog", new { BlogId = x.BlogId })
+                </li>
+            }
+
+        </ul>
+    </div>

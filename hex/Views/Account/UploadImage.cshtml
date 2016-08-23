@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_UnauthLayout.cshtml";
+    ViewBag.Title = "UploadImage";
+}
+
+<h2>Upload Profile Picture</h2>
+<p> welcome @User.Identity.Name , just one Step Left </p>
+<p> upload a profile picture so your friends recognize you!</p>
+@using (@Html.BeginForm("UploadImage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label for="ImageUpload">Upload Image : </label>
+    <input type="file" name="ImageUpload" value="ImageUpload"/>
+    <input type="submit" value="submit" />
+}
+<br/>
+<p>
+    Or , upload Later  @Html.ActionLink("Skip >>", "Index", "Home", null, new { @class = "btn btn-primary"})  
+</p>
+    
